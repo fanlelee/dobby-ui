@@ -1,15 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Fan></Fan>
+  <div>hi</div>
+  <router-link to="/">fan</router-link>
+  <router-link to="/xxx">fan2</router-link>
+  <router-view></router-view>
 </template>
 
 <script>
-import Fan from './components/Fan.vue'
 
 export default {
   name: 'App',
   components: {
-    Fan
   }
 }
 </script>
