@@ -4,8 +4,8 @@
     <h2 class="tittle">Dobby UI</h2>
     <p class="detail">Dobby(多比)是我家可爱猫咪的名字</p>
     <div class="lead">
-      <a>GitHub</a>
-      <a>文档</a>
+      <a href="https://github.com/fanlelee/dobby-ui">GitHub</a>
+      <router-link to="/doc">文档</router-link>
     </div>
   </div>
 </template>

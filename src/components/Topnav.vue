@@ -16,6 +16,8 @@ export default {
 
 <style scoped lang="scss">
 .topnav {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;

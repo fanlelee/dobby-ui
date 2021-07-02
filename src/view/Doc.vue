@@ -1,6 +1,6 @@
 <template>
   <topnav></topnav>
-  <div class="content">
+  <div class="doc">
     <aside>菜单栏</aside>
     <main>对应内容</main>
   </div>
@@ -14,3 +14,15 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .doc{
+    >aside{
+      position: absolute;
+      background-color: lightseagreen;
+      height: 200pX;
+      top: 40px;
+      left: 0;
+      padding-top: 10px;
+    }
+  }
+</style>
