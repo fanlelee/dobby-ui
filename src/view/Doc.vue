@@ -2,7 +2,61 @@
   <topnav></topnav>
   <div class="doc">
     <aside v-if="menuVisible">
-      <h3>菜单栏</h3>
+      <h3>组件列表</h3>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
+      <router-link to="/button">Button组件</router-link>
+      <router-link to="/switch">Switch组件</router-link>
       <router-link to="/switch">Switch组件</router-link>
       <router-link to="/button">Button组件</router-link>
     </aside>
@@ -28,17 +82,38 @@ export default {
 </script>
 <style lang="scss" scoped>
 .doc {
+  height: calc(100vh - 3em);
+  display: flex;
+
   > aside {
-    position: absolute;
     background-color: lightseagreen;
-    height: 200pX;
-    top: 40px;
+    height: 100%;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
     left: 0;
-    padding-top: 10px;
+    padding: 3em 20px 5px 20px;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-content: center;
+    a {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  > main {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    overflow: auto;
+  }
+  @media (min-width: 500px) {
+    aside {
+      width: 30%;
+    }
+    main {
+      margin-left: 30%;
+    }
   }
 }
 </style>

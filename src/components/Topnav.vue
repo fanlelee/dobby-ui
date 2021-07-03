@@ -36,6 +36,7 @@ export default {
   align-items: center;
   background-color: pink;
   padding: 10px 20px;
+  height: 3em;
   > .logo {
     margin-left: 10%;
   }
