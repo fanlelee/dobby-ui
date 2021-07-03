@@ -52,7 +52,7 @@
 </template>
 <script>
 export default {
-name: "Button"
+  name: "Button"
 }
 </script>
 
