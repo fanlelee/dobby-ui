@@ -36,6 +36,7 @@ export default {
     height: 100%;
     overflow-y: auto;
     position: fixed;
+    z-index: 8;
     top: 0;
     left: 0;
     padding: 3em 20px 5px 20px;
