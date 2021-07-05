@@ -3,61 +3,7 @@
   <div class="doc">
     <aside v-if="menuVisible">
       <h3>组件列表</h3>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/button">Button组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
-      <router-link to="/doc/switch">switch组件</router-link>
+      <router-link to="/doc/switch">Switch组件</router-link>
       <router-link to="/doc/button">Button组件</router-link>
     </aside>
     <main>
@@ -66,7 +12,7 @@
   </div>
 </template>
 <script lang="ts">
-import Topnav from "../components/Topnav.vue";
+import Topnav from "../components/TopnavDoc.vue";
 import {Ref, inject} from "vue";
 
 export default {

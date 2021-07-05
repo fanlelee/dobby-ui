@@ -1,7 +1,7 @@
 import Home from './view/Home.vue'
 import Doc from './view/Doc.vue'
-import Switch from './components/Switch.vue'
-import Button from './components/Button.vue'
+import Switch from './components/SwitchDoc.vue'
+import Button from './components/ButtonDoc.vue'
 import DocDefault from './components/DocDefault.vue'
 import {createWebHashHistory, createRouter} from 'vue-router'
 

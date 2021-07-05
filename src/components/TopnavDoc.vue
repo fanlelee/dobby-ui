@@ -16,7 +16,7 @@ import '//at.alicdn.com/t/font_2648871_qm6hcmucm9.js'
 import {inject, Ref} from "vue";
 
 export default {
-  name: "Topnav",
+  name: "TopnavDoc",
   setup() {
     const menuVisible = inject<Ref<boolean>>('menuVisible')
     const toggleMenu = () => {

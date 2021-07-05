@@ -1,10 +1,9 @@
 <template>
-我是Switch组件SwitcSwitcSwitcSwitcSwitc
+  <div>i'm button</div>
 </template>
-
 <script>
 export default {
-  name: "Switch"
+  name: "ButtonDoc"
 }
 </script>
 
