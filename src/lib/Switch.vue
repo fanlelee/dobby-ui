@@ -1,54 +1,33 @@
 <template>
   <button @click="toggle" :class="{checked:check}"><span></span></button>
 </template>
-
 <script>
-import {ref} from "vue";
-
 export default {
   name: "my-switch",
-  setup() {
-    const check = ref(false)
+  props: {check: {type: Boolean, default: false}},
+  setup(props, context) {
     const toggle = () => {
-      console.log(check.value);
-      check.value = !check.value
+      context.emit('update:check', !props.check)
     }
-    return {check, toggle}
+    return {toggle}
   }
 }
 </script>
-
 <style scoped lang="scss">
 button {
   $w: 48px;
-  position: relative;
-  width: $w;
-  height: $w/2;
-  background-color: #ccc;
-  border-radius: $w/2;
-  border: none;
-  cursor: pointer;
+  position: relative;width: $w;height: $w/2;background-color: #ccc;
+  border-radius: $w/2;border: none;cursor: pointer;
   span {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    background-color: #ffffff;
-    width: $w/2-2px;
-    height: $w/2-2px;
-    border-radius: $w/2-2px;
-    transition: all 250ms;
-    &:active{
-      width:$w/2+5px;
-    }
+    position: absolute;top: 1px;left: 1px;background-color: #ffffff;
+    width: $w/2-2px;height: $w/2-2px;border-radius: $w/2-2px;transition: all 250ms;
+    &:active {width: $w/2+3px;}
   }
   &.checked {
     background-color: #408df1;
     span {
       left: $w/2+1px;
-    &:active{
-      width:$w/2+5px;
-      margin-left: -7px;
-    }
+      &:active {width: $w/2+3px;margin-left: -5px;}
     }
   }
 }
