@@ -21,6 +21,10 @@
       disabled:
       <Button :disabled="true">disabled</Button>
     </div>
+    <div>
+      loading:
+      <Button :loading="true">loading</Button>
+    </div>
   </div>
 </template>
 <script>

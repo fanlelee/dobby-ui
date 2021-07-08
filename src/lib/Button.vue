@@ -1,6 +1,7 @@
 <template>
   <button class="dobby-button" :class="classes" @click="" :disabled="disabled">
-    <slot></slot>
+    <span :class="{[`dobby-loading`]:loading}"></span>
+    <slot/>
   </button>
 </template>
 
@@ -9,6 +10,10 @@ export default {
   name: "Button",
   inheritAttrs: false,
   props: {
+    loading: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -125,6 +130,19 @@ export default {
   &[disabled]{
     cursor: not-allowed;
   }
-
+  .dobby-loading{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 8px;
+    border: 2px solid $blue;
+    margin-right: 4px;
+    border-color: $blue $blue $blue transparent;
+    animation: dobby-spin 1s infinite linear;
+  }
+  @keyframes dobby-spin {
+    0%{transform: rotate(0deg)}
+    100%{transform: rotate(360deg)}
+  }
 }
 </style>
