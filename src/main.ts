@@ -1,7 +1,7 @@
-import {createApp} from 'vue'
-import App from './App.vue'
 import './index.scss'
 import './lib/dobby.scss'
+import {createApp} from 'vue'
+import App from './App.vue'
 
 import {router} from './router'
 

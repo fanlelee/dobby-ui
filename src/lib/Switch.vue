@@ -1,5 +1,5 @@
 <template>
-  <button class="dobby-button" @click="toggle" :class="{'dobby-checked':check}"><span></span></button>
+  <button class="dobby-switch" @click="toggle" :class="{'dobby-checked':check}"><span></span></button>
 </template>
 <script>
 export default {
@@ -14,7 +14,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.dobby-button {
+.dobby-switch {
   $w: 48px;
   position: relative;width: $w;height: $w/2;background-color: #ccc;
   border-radius: $w/2;border: none;cursor: pointer;
