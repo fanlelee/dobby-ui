@@ -1,5 +1,5 @@
 <template>
-  <button class="dobby-button" :class="classes" @click="" :disabled="disabled">
+  <button class="dobby-button" :class="classes" :disabled="disabled">
     <span :class="{[`dobby-loading`]:loading}"></span>
     <slot/>
   </button>
@@ -8,7 +8,6 @@
 <script>
 export default {
   name: "Button",
-  inheritAttrs: false,
   props: {
     loading: {
       type: Boolean,

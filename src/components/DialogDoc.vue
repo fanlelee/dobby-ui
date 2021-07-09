@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Button @click="click">toggle</Button>
-    <Dialog></Dialog>
+    <Button @click="showDialog">toggle</Button>
+    <Dialog v-model:visible="visible"></Dialog>
   </div>
 </template>
 
@@ -14,10 +14,10 @@ export default {
   components: {Dialog, Button},
   setup(){
     const visible = ref(false)
-    const click = ()=>{
-        visible.value = !visible.value
+    const showDialog = ()=>{
+      visible.value = !visible.value
     }
-    return {visible, click}
+    return {visible, showDialog}
   }
 }
 </script>

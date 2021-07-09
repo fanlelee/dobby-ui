@@ -1,23 +1,24 @@
 <template>
-  <div class="dobby-dialog-overlay"></div>
-  <div class="dobby-dialog-wrapper">
-    <div class="dobby-dialog">
-      <header class="dobby-dialog-header">
-        <p>tittle</p>
-        <span class="dobby-dialog-close"></span>
-      </header>
-      <main class="dobby-dialog-main">
-        <p>123</p>
-        <p>cvdgv</p>
-        <p>1222</p>
-      </main>
-      <footer class="dobby-dialog-footer">
-        <Button level="normal">确定</Button>
-        <Button>取消</Button>
-      </footer>
-
+  <template v-if="visible">
+    <div class="dobby-dialog-overlay"></div>
+    <div class="dobby-dialog-wrapper">
+      <div class="dobby-dialog">
+        <header class="dobby-dialog-header">
+          <p>tittle</p>
+          <span class="dobby-dialog-close" @click="close"></span>
+        </header>
+        <main class="dobby-dialog-main">
+          <p>123</p>
+          <p>cvdgv</p>
+          <p>1222</p>
+        </main>
+        <footer class="dobby-dialog-footer">
+          <Button level="normal">确定</Button>
+          <Button>取消</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
@@ -25,7 +26,19 @@ import Button from '../lib/Button.vue'
 
 export default {
   name: "my-dialog",
-  components: {Button}
+  components: {Button},
+  props: {
+    visible: {
+      type: Boolean,
+      default: 'false'
+    }
+  },
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', !props.visible)
+    }
+    return {close}
+  }
 }
 </script>
 
@@ -68,7 +81,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    >button{
+    > button {
       margin-left: 8px;
     }
   }
