@@ -5,6 +5,7 @@
       <h3>组件列表</h3>
       <router-link to="/doc/switch">Switch组件</router-link>
       <router-link to="/doc/button">Button组件</router-link>
+      <router-link to="/doc/dialog">Dialog组件</router-link>
     </aside>
     <main>
       <router-view/>
