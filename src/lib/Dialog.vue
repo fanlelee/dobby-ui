@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div class="dobby-dialog-overlay"></div>
+    <div class="dobby-dialog-overlay" @click="onClickOverlay"></div>
     <div class="dobby-dialog-wrapper">
       <div class="dobby-dialog">
         <header class="dobby-dialog-header">
@@ -13,8 +13,8 @@
           <p>1222</p>
         </main>
         <footer class="dobby-dialog-footer">
-          <Button level="normal">确定</Button>
-          <Button>取消</Button>
+          <Button level="normal" @click="ok">确定</Button>
+          <Button @click="cancel">取消</Button>
         </footer>
       </div>
     </div>
@@ -31,13 +31,32 @@ export default {
     visible: {
       type: Boolean,
       default: 'false'
+    },
+    ok:Function,
+    cancel:Function,
+    closeOnClickOverlay:{
+      type:Boolean,
+      default: true
     }
   },
   setup(props, context) {
     const close = () => {
       context.emit('update:visible', !props.visible)
     }
-    return {close}
+    const ok = ()=>{
+      if(props.ok?.() !== false){
+        close()
+      }
+    }
+    const cancel = ()=>{
+      props.cancel?.()
+      close()
+    }
+
+    const onClickOverlay = ()=>{
+      if(props.closeOnClickOverlay){close()}
+    }
+    return {close,ok,cancel,onClickOverlay}
   }
 }
 </script>
