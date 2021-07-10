@@ -4,13 +4,11 @@
     <div class="dobby-dialog-wrapper">
       <div class="dobby-dialog">
         <header class="dobby-dialog-header">
-          <p>tittle</p>
+          <slot name="header"/>
           <span class="dobby-dialog-close" @click="close"></span>
         </header>
         <main class="dobby-dialog-main">
-          <p>123</p>
-          <p>cvdgv</p>
-          <p>1222</p>
+          <slot name="main"/>
         </main>
         <footer class="dobby-dialog-footer">
           <Button level="normal" @click="ok">确定</Button>

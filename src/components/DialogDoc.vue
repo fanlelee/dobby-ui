@@ -1,7 +1,15 @@
 <template>
   <div>
     <Button @click="showDialog">toggle</Button>
-    <Dialog v-model:visible="visible" :ok="f1" :cancel="f2" ></Dialog>
+    <Dialog v-model:visible="visible" :ok="f1" :cancel="f2">
+      <template v-slot:header>
+        <h1>tittle</h1>
+      </template>
+      <template v-slot:main>
+        <p>1</p>
+        <p>2</p>
+      </template>
+    </Dialog>
   </div>
 </template>
 
@@ -9,18 +17,22 @@
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
 import {ref} from 'vue'
+
 export default {
   name: "DialogDoc",
   components: {Dialog, Button},
-  setup(){
+  setup() {
     const visible = ref(false)
-    const showDialog = ()=>{
+    const showDialog = () => {
       visible.value = !visible.value
     }
-    const f1 = ()=>{return false}
-    const f2 = ()=>{
-      console.log('hi2');}
-    return {visible, showDialog,f1,f2}
+    const f1 = () => {
+      return false
+    }
+    const f2 = () => {
+      console.log('hi2');
+    }
+    return {visible, showDialog, f1, f2}
   }
 }
 </script>
