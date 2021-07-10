@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="dobby-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="dobby-dialog-wrapper">
-      <div class="dobby-dialog">
-        <header class="dobby-dialog-header">
-          <slot name="header"/>
-          <span class="dobby-dialog-close" @click="close"></span>
-        </header>
-        <main class="dobby-dialog-main">
-          <slot name="main"/>
-        </main>
-        <footer class="dobby-dialog-footer">
-          <Button level="normal" @click="ok">确定</Button>
-          <Button @click="cancel">取消</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="dobby-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="dobby-dialog-wrapper">
+        <div class="dobby-dialog">
+          <header class="dobby-dialog-header">
+            <slot name="header"/>
+            <span class="dobby-dialog-close" @click="close"></span>
+          </header>
+          <main class="dobby-dialog-main">
+            <slot name="main"/>
+          </main>
+          <footer class="dobby-dialog-footer">
+            <Button level="normal" @click="ok">确定</Button>
+            <Button @click="cancel">取消</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -30,10 +32,10 @@ export default {
       type: Boolean,
       default: 'false'
     },
-    ok:Function,
-    cancel:Function,
-    closeOnClickOverlay:{
-      type:Boolean,
+    ok: Function,
+    cancel: Function,
+    closeOnClickOverlay: {
+      type: Boolean,
       default: true
     }
   },
@@ -41,20 +43,22 @@ export default {
     const close = () => {
       context.emit('update:visible', !props.visible)
     }
-    const ok = ()=>{
-      if(props.ok?.() !== false){
+    const ok = () => {
+      if (props.ok?.() !== false) {
         close()
       }
     }
-    const cancel = ()=>{
+    const cancel = () => {
       props.cancel?.()
       close()
     }
 
-    const onClickOverlay = ()=>{
-      if(props.closeOnClickOverlay){close()}
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close()
+      }
     }
-    return {close,ok,cancel,onClickOverlay}
+    return {close, ok, cancel, onClickOverlay}
   }
 }
 </script>
