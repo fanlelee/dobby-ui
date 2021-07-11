@@ -10,13 +10,17 @@
         <p>2</p>
       </template>
     </Dialog>
+
+    <Button @click="showDialog2">openDialog</Button>
   </div>
 </template>
 
 <script>
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
-import {ref} from 'vue'
+import {ref, h} from 'vue'
+
+import {openDialog} from '../lib/openDialog.ts'
 
 export default {
   name: "DialogDoc",
@@ -32,7 +36,22 @@ export default {
     const f2 = () => {
       console.log('hi2');
     }
-    return {visible, showDialog, f1, f2}
+
+    const showDialog2 = ()=>{
+      openDialog(
+          {
+            'ok':f1,
+            'cancel':f2,
+            'header':h(
+              `strong`,
+              '',
+                '标题'
+              ),
+            'main':'内容内容内容内容内容'
+          }
+      )
+    }
+    return {visible, showDialog, f1, f2,showDialog2}
   }
 }
 </script>
