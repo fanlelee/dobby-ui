@@ -1,13 +1,14 @@
 <template>
-  <Tabs>
-    <Tab title="tab1">内容一</Tab>
-    <Tab title="tab2">内容二</Tab>
+  <Tabs v-model:selectName="selectName">
+    <Tab name="a" title="tab1">内容一</Tab>
+    <Tab name="b" title="tab2">内容二</Tab>
   </Tabs>
 </template>
 
 <script>
 import Tabs from '../lib/Tabs.vue'
 import Tab from '../lib/Tab.vue'
+import {ref} from "vue";
 
 export default {
   name: "TabsDoc",
@@ -15,7 +16,10 @@ export default {
     Tabs,
     Tab
   },
-
+  setup(){
+    const selectName = ref('a')
+    return {selectName}
+  }
 }
 </script>
 

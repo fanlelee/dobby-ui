@@ -1,10 +1,15 @@
 <template>
   <div class="dobby-tabs">
     <div class="dobby-tabs-titles">
-      <component class="dobby-tabs-title" v-for="(title,index) in titles" :key="index">{{ title }}</component>
+      <div class="dobby-tabs-title"
+           v-for="(title,index) in titles"
+           :key="index" @click="clickTitle(index)"
+           :class="{selected: selectName===names[index]}">
+        {{ title }}
+      </div>
     </div>
     <div class="dobby-tabs-contents">
-      <component v-for="(content,i) in defaults" :is="content" :key="i"></component>
+      <component :is="current" :key="current.props.name"></component>
     </div>
   </div>
 
@@ -12,9 +17,13 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
+import {computed} from 'vue'
 
 export default {
   name: "Tabs",
+  props: {
+    selectName: String
+  },
   setup(props, context) {
     const defaults = context.slots.default()
     defaults.forEach(tag => {
@@ -25,7 +34,19 @@ export default {
     const titles = defaults.map(el => {
       return el.props.title
     })
-    return {defaults, titles}
+    const names = defaults.map(el => {
+      return el.props.name
+    })
+    const current  = computed(()=>{
+      return defaults.find(el=>el.props.name === props.selectName)
+    })
+
+    const clickTitle = (index) => {
+      if (props.selectName !== names[index]) {
+        context.emit('update:selectName', names[index])
+      }
+    }
+    return {defaults, titles, names,current, clickTitle}
   }
 }
 </script>
@@ -39,9 +60,13 @@ $deep-blue: #2d6dd2;
     border-bottom: 1px solid #ccc;
   }
   &-title {
+    display: inline-block;
     margin-right: 20px;
     cursor: pointer;
     &:hover {
+      color: $blue;
+    }
+    &.selected{
       color: $blue;
     }
   }

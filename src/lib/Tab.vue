@@ -6,7 +6,8 @@
 export default {
   name: "Tab",
   props:{
-    title:String
+    title:String,
+    name:String
   }
 }
 </script>
