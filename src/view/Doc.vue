@@ -53,7 +53,7 @@ export default {
     height: 100%;
     width: 100%;
     padding: 20px;
-    background-color: lightgoldenrodyellow;
+    //background-color: lightgoldenrodyellow;
     overflow: auto;
   }
   @media (min-width: 500px) {
