@@ -1,7 +1,7 @@
 <template>
   <Tabs>
-    <Tab></Tab>
-    <Tab></Tab>
+    <Tab title="tab1">内容一</Tab>
+    <Tab title="tab2">内容二</Tab>
   </Tabs>
 </template>
 

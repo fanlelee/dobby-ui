@@ -1,7 +1,9 @@
 <template>
-  <div>tabs
-    <component :is="defaults[0]"></component>
-    <component :is="defaults[1]"></component>
+  <div class="dobby-tabs-titles">
+    <component v-for="(title,index) in titles" :key="index">{{title}}</component>
+  </div>
+  <div class="dobby-tabs-contents">
+    <component v-for="(content,i) in defaults" :is="content" :key="i"></component>
   </div>
 </template>
 
@@ -16,7 +18,10 @@ export default {
         throw new Error('Tabs子标签必须是Tab')
       }
     })
-    return {defaults}
+    const titles = defaults.map(el=>{
+      return el.props.title
+    })
+    return {defaults,titles}
   }
 }
 </script>

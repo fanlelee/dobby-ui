@@ -1,13 +1,12 @@
 <template>
-  <div>我是tab</div>
+  <slot/>
 </template>
 
 <script lang="ts">
 export default {
-name: "Tab"
+  name: "Tab",
+  props:{
+    title:String
+  }
 }
 </script>
-
-<style lang="scss">
-
-</style>
