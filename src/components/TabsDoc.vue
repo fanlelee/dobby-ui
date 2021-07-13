@@ -1,7 +1,7 @@
 <template>
   <Tabs v-model:selectName="selectName">
     <Tab name="a" title="tab1">内容一</Tab>
-    <Tab name="b" title="tab2">内容二</Tab>
+    <Tab name="b" title="tab222222222">内容二</Tab>
   </Tabs>
 </template>
 

@@ -1,15 +1,17 @@
 <template>
   <div class="dobby-tabs">
-    <div class="dobby-tabs-titles">
+    <div class="dobby-tabs-titles" ref="titlesContainer">
       <div class="dobby-tabs-title"
            v-for="(title,index) in titles"
            :key="index" @click="clickTitle(index)"
-           :class="{selected: selectName===names[index]}">
+           :class="{selected: selectName===names[index]}"
+           :ref="el => { if (el) titleNodes[index] = el }">
         {{ title }}
       </div>
+      <span class="dobby-tabs-indicator" ref="indicator"></span>
     </div>
     <div class="dobby-tabs-contents">
-      <component :is="current" :key="current.props.name"></component>
+      <component :is="current" :key="current"></component>
     </div>
   </div>
 
@@ -17,7 +19,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import {computed} from 'vue'
+import {computed, ref, onMounted, onUpdated} from 'vue'
 
 export default {
   name: "Tabs",
@@ -25,6 +27,26 @@ export default {
     selectName: String
   },
   setup(props, context) {
+    const current = computed(() => {
+      return defaults.filter(el => el.props.name === props.selectName)[0]
+    })
+
+
+    const titleNodes = ref<HTMLDivElement[]>([])
+    const indicator = ref<HTMLDivElement>(null)
+    const titlesContainer =  ref<HTMLDivElement>(null)
+
+    const x = ()=>{
+      const selectedTitle = titleNodes.value.filter(div => div.classList.contains('selected'))[0]
+      indicator.value.style.width = selectedTitle.getBoundingClientRect().width + 'px'
+      const {left:left1} = titlesContainer.value.getBoundingClientRect()
+      const {left:left2} = selectedTitle.getBoundingClientRect()
+      indicator.value.style.left = left2-left1+'px'
+
+    }
+    onMounted(x)
+    onUpdated(x)
+
     const defaults = context.slots.default()
     defaults.forEach(tag => {
       if (tag.type !== Tab) {
@@ -37,16 +59,14 @@ export default {
     const names = defaults.map(el => {
       return el.props.name
     })
-    const current  = computed(()=>{
-      return defaults.find(el=>el.props.name === props.selectName)
-    })
 
     const clickTitle = (index) => {
       if (props.selectName !== names[index]) {
         context.emit('update:selectName', names[index])
       }
     }
-    return {defaults, titles, names,current, clickTitle}
+
+    return {defaults, titles, names, current, clickTitle, titleNodes, indicator,titlesContainer}
   }
 }
 </script>
@@ -56,19 +76,27 @@ $blue: #408df1;
 $deep-blue: #2d6dd2;
 .dobby-tabs {
   &-titles {
-    padding: 10px 0;
+    position: relative;
     border-bottom: 1px solid #ccc;
   }
   &-title {
+    padding: 10px;
     display: inline-block;
-    margin-right: 20px;
     cursor: pointer;
     &:hover {
       color: $blue;
     }
-    &.selected{
+    &.selected {
       color: $blue;
     }
+  }
+  &-indicator {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 3px;
+    background-color: $blue;
+    transition: all 250ms ;
   }
 }
 </style>
