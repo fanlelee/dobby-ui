@@ -19,7 +19,7 @@
 <script lang="ts">
 
 import Tab from './Tab.vue'
-import {computed, ref, onMounted, onUpdated} from 'vue'
+import {computed, ref, onMounted,watchEffect} from 'vue'
 
 export default {
   name: "Tabs",
@@ -30,14 +30,15 @@ export default {
     const selectedTitle = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLElement>(null)
     const titlesContainer = ref<HTMLDivElement>(null)
-    const setIndicatorStyle = () => {
-      indicator.value.style.width = selectedTitle.value.getBoundingClientRect().width + 'px'
-      const {left: left1} = titlesContainer.value.getBoundingClientRect()
-      const {left: left2} = selectedTitle.value.getBoundingClientRect()
-      indicator.value.style.left = left2 - left1 + 'px'
-    }
-    onMounted(setIndicatorStyle)
-    onUpdated(setIndicatorStyle)
+
+    onMounted(()=>{
+      watchEffect(()=>{
+        indicator.value.style.width = selectedTitle.value.getBoundingClientRect().width + 'px'
+        const {left: left1} = titlesContainer.value.getBoundingClientRect()
+        const {left: left2} = selectedTitle.value.getBoundingClientRect()
+        indicator.value.style.left = left2 - left1 + 'px'
+      })
+    })
 
     const defaults = context.slots.default()
     defaults.forEach(tag => {
