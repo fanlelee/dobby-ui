@@ -5,7 +5,7 @@
            v-for="(title,index) in titles"
            :key="index" @click="clickTitle(index)"
            :class="{selected: selectName===names[index]}"
-           :ref="el => { if (el) titleNodes[index] = el }">
+           :ref="el => { if (selectName===names[index]) selectedTitle = el }">
         {{ title }}
       </div>
       <span class="dobby-tabs-indicator" ref="indicator"></span>
@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts">
+
 import Tab from './Tab.vue'
 import {computed, ref, onMounted, onUpdated} from 'vue'
 
@@ -30,18 +31,16 @@ export default {
     const current = computed(() => {
       return defaults.filter(el => el.props.name === props.selectName)[0]
     })
+    const selectedTitle = ref<HTMLDivElement>(null)
 
-
-    const titleNodes = ref<HTMLDivElement[]>([])
     const indicator = ref<HTMLDivElement>(null)
-    const titlesContainer =  ref<HTMLDivElement>(null)
+    const titlesContainer = ref<HTMLDivElement>(null)
 
-    const x = ()=>{
-      const selectedTitle = titleNodes.value.filter(div => div.classList.contains('selected'))[0]
-      indicator.value.style.width = selectedTitle.getBoundingClientRect().width + 'px'
-      const {left:left1} = titlesContainer.value.getBoundingClientRect()
-      const {left:left2} = selectedTitle.getBoundingClientRect()
-      indicator.value.style.left = left2-left1+'px'
+    const x = () => {
+      indicator.value.style.width = selectedTitle.value.getBoundingClientRect().width + 'px'
+      const {left: left1} = titlesContainer.value.getBoundingClientRect()
+      const {left: left2} = selectedTitle.value.getBoundingClientRect()
+      indicator.value.style.left = left2 - left1 + 'px'
 
     }
     onMounted(x)
@@ -66,7 +65,16 @@ export default {
       }
     }
 
-    return {defaults, titles, names, current, clickTitle, titleNodes, indicator,titlesContainer}
+    return {
+      defaults,
+      titles,
+      names,
+      current,
+      clickTitle,
+      indicator,
+      titlesContainer,
+      selectedTitle
+    }
   }
 }
 </script>
@@ -96,7 +104,7 @@ $deep-blue: #2d6dd2;
     left: 0;
     height: 3px;
     background-color: $blue;
-    transition: all 250ms ;
+    transition: all 250ms;
   }
 }
 </style>
