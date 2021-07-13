@@ -14,7 +14,6 @@
       <component :is="current" :key="current"></component>
     </div>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -28,23 +27,17 @@ export default {
     selectName: String
   },
   setup(props, context) {
-    const current = computed(() => {
-      return defaults.filter(el => el.props.name === props.selectName)[0]
-    })
     const selectedTitle = ref<HTMLDivElement>(null)
-
-    const indicator = ref<HTMLDivElement>(null)
+    const indicator = ref<HTMLElement>(null)
     const titlesContainer = ref<HTMLDivElement>(null)
-
-    const x = () => {
+    const setIndicatorStyle = () => {
       indicator.value.style.width = selectedTitle.value.getBoundingClientRect().width + 'px'
       const {left: left1} = titlesContainer.value.getBoundingClientRect()
       const {left: left2} = selectedTitle.value.getBoundingClientRect()
       indicator.value.style.left = left2 - left1 + 'px'
-
     }
-    onMounted(x)
-    onUpdated(x)
+    onMounted(setIndicatorStyle)
+    onUpdated(setIndicatorStyle)
 
     const defaults = context.slots.default()
     defaults.forEach(tag => {
@@ -64,7 +57,9 @@ export default {
         context.emit('update:selectName', names[index])
       }
     }
-
+    const current = computed(() => {
+      return defaults.filter(el => el.props.name === props.selectName)[0]
+    })
     return {
       defaults,
       titles,
@@ -83,28 +78,12 @@ $light-blue: #5ca8f8;
 $blue: #408df1;
 $deep-blue: #2d6dd2;
 .dobby-tabs {
-  &-titles {
-    position: relative;
-    border-bottom: 1px solid #ccc;
+  &-titles {position: relative;border-bottom: 1px solid #ccc;}
+  &-title {padding: 10px;display: inline-block;cursor: pointer;
+    &:hover {color: $blue;}
+    &.selected {color: $blue;}
   }
-  &-title {
-    padding: 10px;
-    display: inline-block;
-    cursor: pointer;
-    &:hover {
-      color: $blue;
-    }
-    &.selected {
-      color: $blue;
-    }
-  }
-  &-indicator {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    height: 3px;
-    background-color: $blue;
-    transition: all 250ms;
-  }
+  &-indicator {position: absolute;bottom: -1px;left: 0;height: 3px;
+    background-color: $blue;transition: all 250ms;}
 }
 </style>
