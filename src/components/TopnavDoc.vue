@@ -1,18 +1,24 @@
 <template>
   <div class="topnav">
-    <svg class="icon" aria-hidden="true" @click="toggleMenu">
+    <svg class="icon" @click="toggleMenu">
       <use xlink:href="#icon-menu"></use>
     </svg>
-    <div class="logo">logo</div>
+    <div class="logo">
+      <router-link to="/">
+        <svg class="icon">
+          <use xlink:href="#icon-cat"></use>
+        </svg>
+      </router-link>
+    </div>
     <ul class="menu">
-      <li><a href="">菜单一</a></li>
-      <li><a href="">菜单二</a></li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import '//at.alicdn.com/t/font_2648871_qm6hcmucm9.js'
 import {inject, Ref} from "vue";
 
 export default {
@@ -34,11 +40,16 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: pink;
+  color: #fff;
+  background-color: #0e161b;
   padding: 10px 20px;
   height: 3em;
   > .logo {
     margin-left: 10%;
+    .icon {
+      width: 2em;
+      height: 2em;
+    }
   }
   > .menu {
     display: flex;
@@ -46,16 +57,16 @@ export default {
     li {
       display: inline-block;
       margin: 0 5px;
+      > a {color: #fff;}
     }
   }
   > .icon {
-    width: 1em;
-    height: 1em;
+    fill: #fff;
     position: absolute;
     left: 4%;
     display: none;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     > .icon {
       display: inline-block;
     }
