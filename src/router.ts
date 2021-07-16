@@ -1,5 +1,8 @@
 import Home from './view/Home.vue'
 import Doc from './view/Doc.vue'
+import Install from './view/Install.vue'
+import Introduce from './view/Introduce.vue'
+import GetStarted from './view/GetStarted.vue'
 import DocDefault from './components/DocDefault.vue'
 import Switch from './components/SwitchDoc.vue'
 import Button from './components/ButtonDoc.vue'
@@ -20,6 +23,9 @@ export const router = createRouter({
                 {path: 'button', component: Button},
                 {path: 'dialog', component: Dialog},
                 {path: 'tabs', component: Tabs},
+                {path: 'install', component: Install},
+                {path: 'introduce', component: Introduce},
+                {path: 'get-started', component: GetStarted},
             ]
         }
     ]

@@ -79,7 +79,7 @@ export default {
     li {
       display: inline-block;
       margin: 0 5px;
-      > a {color: #fff;}
+      > a {color: #fff;&:hover{text-decoration: underline;}}
     }
   }
 

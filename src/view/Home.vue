@@ -12,7 +12,7 @@
           People who love cats have some of the biggest hearts around
         </p>
         <div class="lead">
-          <router-link to="/doc">get start</router-link>
+          <router-link to="/doc">Get Started</router-link>
         </div>
       </div>
       <div class="base">
@@ -99,6 +99,7 @@ html, body, .home {height: 100vh}
           height: $h;
           line-height: $h;
           display: inline-block;
+          &:hover{text-decoration: underline;}
         }
       }
     }
