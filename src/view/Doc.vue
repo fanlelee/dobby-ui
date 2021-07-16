@@ -36,21 +36,27 @@ export default {
 .doc {
   height: calc(100vh - 3em);
   display: flex;
-
   > aside {
-    background-color: lightseagreen;
+    background-color: #31465a;
+    color: #fff;
     height: 100%;
     overflow-y: auto;
     position: fixed;
     z-index: 8;
     top: 0;
     left: 0;
-    padding: 3em 20px 5px 20px;
+    padding: 3em 0 5px;
     display: flex;
     flex-direction: column;
+    h3{padding-left: 10px;}
     a {
+      color: #fff;
       display: block;
-      padding: 5px 0;
+      padding: 8px 0 8px   24px;
+    }
+    a.router-link-active{
+      background-color: #fff;
+      color: #131d24;
     }
   }
   > main {
