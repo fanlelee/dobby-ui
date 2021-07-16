@@ -12,7 +12,7 @@
           People who love cats have some of the biggest hearts around
         </p>
         <div class="lead">
-          <router-link to="/doc">Get Started</router-link>
+          <router-link to="/doc/get-started">Get Started</router-link>
         </div>
       </div>
       <div class="base">

@@ -48,13 +48,13 @@ export default {
     padding: 3em 0 5px;
     display: flex;
     flex-direction: column;
-    h3{padding-left: 10px;}
+    h3 {padding: 8px 0 8px 15px;}
     a {
       color: #fff;
       display: block;
-      padding: 8px 0 8px   24px;
+      padding: 8px 20px 8px 25px;
     }
-    a.router-link-active{
+    a.router-link-active {
       background-color: #fff;
       color: #131d24;
     }
@@ -68,10 +68,10 @@ export default {
   }
   @media (min-width: 500px) {
     aside {
-      width: 30%;
+      width: 16%;
     }
     main {
-      margin-left: 30%;
+      margin-left: 16%;
     }
   }
 }
