@@ -1,11 +1,12 @@
 <template>
   <div class="topnav">
-    <svg class="icon" @click="toggleMenu">
-      <use xlink:href="#icon-menu"></use>
-    </svg>
+    <div></div>
     <div class="logo">
+      <svg class="icon icon-menu" @click="toggleMenu" v-if="menuLogoVisible">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
       <router-link to="/">
-        <svg class="icon">
+        <svg class="icon icon-logo">
           <use xlink:href="#icon-cat"></use>
         </svg>
       </router-link>
@@ -23,7 +24,14 @@ import {inject, Ref} from "vue";
 
 export default {
   name: "TopnavDoc",
-  setup() {
+  props: {
+    menuLogoVisible: {
+      type: Boolean,
+      default: true
+    }
+  },
+  setup(props, context) {
+    console.log(context.attrs.menuLogoVisible);
     const menuVisible = inject<Ref<boolean>>('menuVisible')
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
@@ -41,14 +49,28 @@ export default {
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  background-color: #0e161b;
+  background: rgb(11, 22, 27);
+  background: linear-gradient(0deg, rgba(11, 22, 27, 1) 12%, rgba(43, 72, 94, 1) 93%);
   padding: 10px 20px;
   height: 3em;
-  > .logo {
-    margin-left: 10%;
-    .icon {
-      width: 2em;
-      height: 2em;
+   .logo {
+    position: absolute;
+    left: 4%;
+    .icon-menu {
+      fill: #fff;
+      width: 1.3em;
+      height: 1.3em;
+      margin-right: 16px;
+      display: none;
+    }
+     @media (max-width: 600px) {
+       .icon-menu {
+         display: inline-block;
+       }
+     }
+    .icon-logo {
+      width: 1.6em;
+      height: 1.6em;
     }
   }
   > .menu {
@@ -60,16 +82,7 @@ export default {
       > a {color: #fff;}
     }
   }
-  > .icon {
-    fill: #fff;
-    position: absolute;
-    left: 4%;
-    display: none;
-  }
-  @media (max-width: 600px) {
-    > .icon {
-      display: inline-block;
-    }
-  }
+
+
 }
 </style>

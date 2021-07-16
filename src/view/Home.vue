@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <topnav></topnav>
+    <topnav :menuLogoVisible="false"></topnav>
     <main>
       <div class="banner">
         <h1 class="tittle">Dobby UI</h1>
@@ -120,6 +120,7 @@ html, body, .home {height: 100vh}
         }
       }
       @media (max-width: 600px) {
+        padding: 0 8px 16px 0;
         > div,.item-icon>a {
           width: 7em;
           height: 5em;
