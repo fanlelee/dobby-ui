@@ -3,7 +3,8 @@
     <h3 class="title">{{ componentDemo.__sourceCodeTitle }}</h3>
     <div class="component"><component :is="componentDemo"></component></div>
     <pre class="core-code">{{ coreCode }}</pre>
-    <div><Button @click="toggle">完整代码</Button></div>
+    <div v-if="description" class="description">{{description}}</div>
+    <div ><Button @click="toggle">完整代码</Button></div>
     <pre v-if="codeVisible" class="all-code language-html" v-html="Prism.highlight(componentDemo.__sourceCode,Prism.languages.html, 'html')"/>
   </div>
 </template>
@@ -18,7 +19,8 @@ export default {
   components: {Button},
   props:{
     componentDemo:Object,
-    coreCode:String
+    coreCode:String,
+    description:String
   },
   setup() {
     const codeVisible = ref<boolean>(false)
@@ -33,7 +35,6 @@ export default {
 <style lang="scss">
 .demo {
   border: 1px solid #e2e6eb;
-  padding: 16px 0;
   margin-bottom: 16px;
   > *{
     padding: 16px;
@@ -42,5 +43,9 @@ export default {
     border-bottom: 1px solid #e2e6eb;
   }
   .core-code{background-color: #cad3de;}
+  >.description{
+    border: 1px solid #e2e6eb;
+    margin: 8px;
+  }
 }
 </style>
