@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue'
+import Dialog from '../../lib/Dialog.vue'
+import Button from '../../lib/Button.vue'
 import {ref, h} from 'vue'
 
-import {openDialog} from '../lib/openDialog.ts'
+import {openDialog} from '../../lib/openDialog.ts'
 
 export default {
   name: "DialogDoc",

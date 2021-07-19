@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import Button from '../lib/Button.vue'
+import Button from '../../lib/Button.vue'
 
 export default {
   name: "ButtonDoc",
