@@ -60,7 +60,7 @@ export default {
   display: inline-block;
   cursor: pointer;
   border: none;
-
+  &+&{margin-left: $dimension;}
   &.dobby-level-normal {
     color: #fff;
     background-color: $blue;
