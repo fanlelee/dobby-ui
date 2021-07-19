@@ -1,17 +1,3 @@
 <template>
-  <article class="markdown-body" v-html="md"></article>
+  <Article path="../markdown/install.md"></Article>
 </template>
-
-<script>
-import md from '../markdown/install.md'
-export default {
-  name: "Install",
-  setup(){
-    return {md}
-  }
-}
-</script>
-
-<style scoped lang="scss">
-
-</style>
