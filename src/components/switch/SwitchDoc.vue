@@ -1,15 +1,16 @@
 <template>
-  <Switch v-model:check="open"></Switch>
+  <Switch1></Switch1>
+  <h3>{{Switch1.__sourceCodeTitle}}</h3>
+  <pre>{{Switch1.__sourceCode}}</pre>
 </template>
 <script>
-import Switch from '../../lib/Switch.vue'
-import {ref} from 'vue'
+import Switch1 from './Switch1.demo.vue'
 export default {
   name: "SwitchDoc",
-  components: {Switch},
-  setup() {
-    const open = ref(false)
-    return {open}
+  components: {Switch1},
+  setup(){
+    return {Switch1}
   }
+
 }
 </script>
