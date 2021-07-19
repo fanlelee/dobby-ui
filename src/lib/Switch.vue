@@ -1,13 +1,17 @@
 <template>
-  <button class="dobby-switch" @click="toggle" :class="{'dobby-checked':check}"><span></span></button>
+  <button class="dobby-switch" @click="toggle" :class="{'dobby-checked':check,disabled}"><span></span></button>
 </template>
 <script>
 export default {
   name: "my-switch",
-  props: {check: {type: Boolean, default: false}},
+  props: {
+    check: {type: Boolean, default: false},
+    disabled: {type: Boolean, default: false},
+  },
   setup(props, context) {
     const toggle = () => {
-      context.emit('update:check', !props.check)
+      if(!props.disabled)
+        context.emit('update:check', !props.check)
     }
     return {toggle}
   }
@@ -30,5 +34,6 @@ export default {
       &:active {width: $w/2+3px;margin-left: -5px;}
     }
   }
+  &.disabled{cursor: not-allowed;}
 }
 </style>
