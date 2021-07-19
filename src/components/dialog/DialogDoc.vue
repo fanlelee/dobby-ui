@@ -1,57 +1,48 @@
 <template>
-  <div>
-    <Button @click="showDialog">toggle</Button>
-    <Dialog v-model:visible="visible" :ok="f1" :cancel="f2">
-      <template v-slot:header>
-        <h1>tittle</h1>
-      </template>
-      <template v-slot:main>
-        <p>1</p>
-        <p>2</p>
-      </template>
-    </Dialog>
-
-    <Button @click="showDialog2">openDialog</Button>
-  </div>
+  <h1>Dialog组件</h1>
+  <Demo :component-demo="Dialog1" :core-code="coreCode1" :description="description1"/>
+  <Demo :component-demo="Dialog2" :core-code="coreCode2" :description="description2"/>
 </template>
 
 <script>
-import Dialog from '../../lib/Dialog.vue'
-import Button from '../../lib/Button.vue'
-import {ref, h} from 'vue'
-
-import {openDialog} from '../../lib/openDialog.ts'
+import Demo from "../Demo.vue";
+import Dialog1 from "./Dialog1.demo.vue";
+import Dialog2 from "./Dialog2.demo.vue";
 
 export default {
   name: "DialogDoc",
-  components: {Dialog, Button},
+  components: {Demo},
   setup() {
-    const visible = ref(false)
-    const showDialog = () => {
-      visible.value = !visible.value
+    const dialog1 = {
+      'coreCode1':'  <Dialog v-model:visible="visible" :ok="f1" :cancel="f2">\n' +
+          '    <template v-slot:header>\n' +
+          '      <h1>标题</h1>\n' +
+          '    </template>\n' +
+          '    <template v-slot:main>\n' +
+          '      <p>内容1</p>\n' +
+          '      <p>内容2</p>\n' +
+          '    </template>\n' +
+          '  </Dialog>',
+      'description1': '"ok"函数返回布尔值，如果为false，则点击确定时不会关闭dialog;\n"closeOnClickOverlay"属性值默认：true,即点击非dialog的位置，dialog会消失。',
+      Dialog1
     }
-    const f1 = () => {
-      return false
+    const dialog2 = {
+      'coreCode2':'      openDialog(\n' +
+          '          {\n' +
+          '            \'ok\': ok,\n' +
+          '            \'cancel\': cancel,\n' +
+          '            \'header\': h(\n' +
+          '                `strong`,\n' +
+          '                \'\',\n' +
+          '                \'标题\'\n' +
+          '            ),\n' +
+          '            \'main\': \'内容\'\n' +
+          '          }\n' +
+          '      )',
+      'description2':'通过JS来设置dialog相关参数；\n注意需要引入"import {openDialog} from \'openDialog.ts\'"。',
+      Dialog2
     }
-    const f2 = () => {
-      console.log('hi2');
-    }
-
-    const showDialog2 = ()=>{
-      openDialog(
-          {
-            'ok':f1,
-            'cancel':f2,
-            'header':h(
-              `strong`,
-              '',
-                '标题'
-              ),
-            'main':'内容内容内容内容内容'
-          }
-      )
-    }
-    return {visible, showDialog, f1, f2,showDialog2}
+    return {...dialog1, ...dialog2}
   }
 }
 </script>

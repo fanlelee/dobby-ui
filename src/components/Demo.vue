@@ -2,7 +2,7 @@
   <div class="demo">
     <h3 class="title">{{ componentDemo.__sourceCodeTitle }}</h3>
     <div class="component"><component :is="componentDemo"></component></div>
-    <pre class="core-code">{{ coreCode }}</pre>
+    <pre v-if="coreCode" class="core-code">{{ coreCode }}</pre>
     <div v-if="description" class="description">{{description}}</div>
     <div><Button @click="toggle" size="small">完整代码</Button></div>
     <pre v-if="codeVisible" class="all-code language-html" v-html="Prism.highlight(componentDemo.__sourceCode,Prism.languages.html, 'html')"/>
