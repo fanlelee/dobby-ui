@@ -106,6 +106,7 @@ export default {
   &.dobby-theme-link{
     border: none;
     background-color: transparent;
+    text-decoration: underline;
     &:hover {
       border: none;
     }
