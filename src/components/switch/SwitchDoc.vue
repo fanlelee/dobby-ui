@@ -1,19 +1,18 @@
 <template>
-  <Switch1></Switch1>
-  <h3>{{ Switch1.__sourceCodeTitle }}</h3>
-  <pre class="language-html" v-html="Prism.highlight(Switch1.__sourceCode,Prism.languages.html, 'html')"/>
+  <h1>Switch组件</h1>
+  <Demo :component-demo="Switch1" core-code='<Switch v-model:check="open" />'/>
+  <Demo :component-demo="Switch2" core-code='<Switch :disabled="true" />'/>
 </template>
 <script lang="ts">
-import Switch1 from './Switch1.demo.vue'
-import 'prismjs';
-import 'prismjs/themes/prism-okaidia.css'
-const Prism = (window as any).Prism
+import Switch1 from "./Switch1.demo.vue";
+import Switch2 from "./Switch2.demo.vue";
+import Demo from "../Demo.vue";
+
 export default {
   name: "SwitchDoc",
-  components: {Switch1},
+  components: {Demo},
   setup() {
-    return {Switch1, Prism}
+    return {Switch1, Switch2}
   }
-
 }
 </script>
