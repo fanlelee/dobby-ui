@@ -30,8 +30,7 @@ export default {
       default: true
     }
   },
-  setup(props, context) {
-    console.log(context.attrs.menuLogoVisible);
+  setup() {
     const menuVisible = inject<Ref<boolean>>('menuVisible')
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
