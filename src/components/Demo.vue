@@ -4,7 +4,8 @@
     <div class="component"><component :is="componentDemo"></component></div>
     <pre v-if="coreCode" class="core-code">{{ coreCode }}</pre>
     <div v-if="description" class="description">{{description}}</div>
-    <div><Button @click="toggle" size="small">完整代码</Button></div>
+    <div v-if="codeVisible"><Button @click="toggle" size="small">隐藏代码</Button></div>
+    <div v-else><Button @click="toggle" size="small">显示完整代码</Button></div>
     <pre v-if="codeVisible" class="all-code language-html" v-html="Prism.highlight(componentDemo.__sourceCode,Prism.languages.html, 'html')"/>
   </div>
 </template>
