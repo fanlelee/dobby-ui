@@ -3,8 +3,8 @@
   <div class="doc">
     <aside v-if="menuVisible">
       <h3>基础</h3>
-      <router-link to="/doc/install">安装</router-link>
       <router-link to="/doc/introduce">介绍</router-link>
+      <router-link to="/doc/install">安装</router-link>
       <router-link to="/doc/get-started">起步</router-link>
       <h3>组件列表</h3>
       <router-link to="/doc/switch">Switch组件</router-link>

@@ -1,6 +1,5 @@
 import Home from './view/Home.vue'
 import Doc from './view/Doc.vue'
-import DocDefault from './components/DocDefault.vue'
 import Switch from './components/switch/SwitchDoc.vue'
 import Button from './components/button/ButtonDoc.vue'
 import Dialog from './components/dialog/DialogDoc.vue'
@@ -19,7 +18,7 @@ export const router = createRouter({
         {
             path: '/doc', component: Doc,
             children: [
-                {path:'',component:DocDefault},
+                {path:'',redirect:'/doc/introduce'},
                 {path: 'switch', component: Switch},
                 {path: 'button', component: Button},
                 {path: 'dialog', component: Dialog},

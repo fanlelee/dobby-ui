@@ -1,4 +1,5 @@
 <template>
+  <h1>Tabs组件</h1>
   <Demo :component-demo="Tabs1" :core-code="coreCode1" description=""/>
 </template>
 

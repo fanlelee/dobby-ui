@@ -79,7 +79,7 @@ html, body, .home {height: 100vh}
       place-self: center center;
       @media (min-width: 600px) {
         place-self: center start;
-        padding-left: 3em;
+        padding-left: 16em;
       }
       display: flex;
       flex-direction: column;
@@ -110,7 +110,7 @@ html, body, .home {height: 100vh}
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
       @media (min-width: 600px) {
-        padding-right: 3em;
+        padding-right: 8em;
         > div,.item-icon>a {
           width: 10em;
           height: 8em;
