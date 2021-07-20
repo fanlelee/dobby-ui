@@ -2,17 +2,8 @@
   <article class="markdown-body" v-html="content"></article>
 </template>
 <script lang="ts">
-import {ref} from "vue";
 export default {
   name: "Article",
-  props:{path:String},
-  setup(props) {
-    const content = ref(null)
-    import(props.path).then(result => {
-      content.value = result.default
-    })
-
-    return {content}
-  }
+  props:{content:String},
 }
 </script>
