@@ -1,4 +1,4 @@
-<demo>常规写法</demo>
+<demo>常规用法</demo>
 <template>
   <Button @click="showDialog">toggle</Button>
   <Dialog v-model:visible="visible" :ok="f1" :cancel="f2" :closeOnClickOverlay="true">

@@ -1,28 +1,21 @@
 <template>
-  <Tabs v-model:selectName="selectName">
-    <Tab name="a" title="tab1">内容一</Tab>
-    <Tab name="b" title="tab222222222">内容二</Tab>
-  </Tabs>
+  <Demo :component-demo="Tabs1" :core-code="coreCode1" description=""/>
 </template>
 
-<script>
-import Tabs from '../../lib/Tabs.vue'
-import Tab from '../../lib/Tab.vue'
-import {ref} from "vue";
-
+<script lang="ts">
+import Demo from "../Demo.vue";
+import Tabs1 from './Tabs1.demo.vue'
 export default {
   name: "TabsDoc",
   components:{
-    Tabs,
-    Tab
+    Demo
   },
   setup(){
-    const selectName = ref('a')
-    return {selectName}
+    const coreCode1 = '  <Tabs v-model:selectName="selectName">\n' +
+        '    <Tab name="a" title="tab1">内容一</Tab>\n' +
+        '    <Tab name="b" title="tab2">内容二</Tab>\n' +
+        '  </Tabs>'
+    return {Tabs1,coreCode1}
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

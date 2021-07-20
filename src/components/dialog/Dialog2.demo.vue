@@ -1,4 +1,4 @@
-<demo>简洁快速的写法</demo>
+<demo>简洁快速的用法</demo>
 <template>
   <Button @click="showDialog">openDialog</Button>
 </template>
