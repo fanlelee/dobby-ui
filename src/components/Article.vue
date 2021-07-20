@@ -7,11 +7,11 @@ export default {
   name: "Article",
   props:{path:String},
   setup(props) {
+    const content = ref(null)
     import(props.path).then(result => {
       content.value = result.default
     })
 
-    const content = ref(null)
     return {content}
   }
 }
