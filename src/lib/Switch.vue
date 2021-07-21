@@ -20,18 +20,18 @@ export default {
 <style lang="scss">
 .dobby-switch {
   $w: 48px;
-  position: relative;width: $w;height: $w/2;background-color: #ccc;
-  border-radius: $w/2;border: none;cursor: pointer;
+  position: relative;width: 48px;height: 24px;background-color: #ccc;
+  border-radius: 24px;border: none;cursor: pointer;
   span {
     position: absolute;top: 1px;left: 1px;background-color: #ffffff;
-    width: $w/2-2px;height: $w/2-2px;border-radius: $w/2-2px;transition: all 250ms;
-    &:active {width: $w/2+3px;}
+    width: 22px;height: 22px;border-radius: 22px;transition: all 250ms;
+    &:active {width: 27px;}
   }
   &.dobby-checked {
     background-color: #408df1;
     span {
-      left: $w/2+1px;
-      &:active {width: $w/2+3px;margin-left: -5px;}
+      left: 25px;
+      &:active {width: 27px;margin-left: -5px;}
     }
   }
   &.disabled{cursor: not-allowed;}

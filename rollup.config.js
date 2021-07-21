@@ -18,7 +18,7 @@ export default {
     plugins: [
         scss({ include: /\.scss$/, sass: dartSass }),
         esbuild({
-            include: /\.[jt]sx$/,
+            include: /\.[jt]sx?$/,
             minify: process.env.NODE_ENV === 'production',
             target: 'es2015' //es6
         }),

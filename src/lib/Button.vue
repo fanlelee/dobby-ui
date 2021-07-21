@@ -53,14 +53,13 @@ export default {
 
 <style lang="scss">
 .dobby-button {
-  $dimension: 12px;
   $light-blue: #5ca8f8;
   $blue: #408df1;
   $deep-blue: #2d6dd2;
   display: inline-block;
   cursor: pointer;
   border: none;
-  &+&{margin-left: $dimension;}
+  &+&{margin-left: 12px;}
   &.dobby-level-normal {
     color: #fff;
     background-color: $blue;
@@ -88,19 +87,19 @@ export default {
 
   &.dobby-size-small {
     font-size: 10px;
-    padding: $dimension/4 $dimension/2;
-    border-radius: $dimension/4;
+    padding: 3px 6px;
+    border-radius: 3px
   }
   &.dobby-size-normal {
     font-size: 16px;
-    padding: $dimension/2 $dimension;
-    border-radius: $dimension/2;
+    padding: 6px 12px;
+    border-radius: 6px;
   }
 
   &.dobby-size-big {
     font-size: 20px;
-    padding: $dimension/1.5 $dimension;
-    border-radius: $dimension/1.5;
+    padding: 8px 12px;
+    border-radius: 8px;
   }
 
   &.dobby-theme-link{

@@ -94,8 +94,8 @@ html, body, .home {height: 100vh}
           color: #fff;
           font-weight: bold;
           $h: 48px;
-          border-radius: $h/2;
-          padding: 0 $h/2;
+          border-radius: 24px;
+          padding: 0 24px;
           height: $h;
           line-height: $h;
           display: inline-block;
