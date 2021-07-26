@@ -1,6 +1,6 @@
 <demo>loading</demo>
 <template>
-    <Button :loading="true">loading</Button>
+  <Button :loading="true">loading</Button>
 </template>
 
 <script type="ts">

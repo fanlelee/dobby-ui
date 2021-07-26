@@ -4,6 +4,7 @@
 ```
 import {Button, Tabs, Switch, Dialog} from "dobby-ui"
 ```
+在实际引用时，就不能像组件列表中的示例源码那样写~~`import from '../../lib/Button.vue'`~~，而应如上写法。
 #### 使用
 以组件Button为例：
 ```

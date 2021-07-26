@@ -133,7 +133,7 @@ export default {
     width: 14px;
     height: 14px;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 14px;
     border: 2px solid $blue;
     margin-right: 4px;
     border-color: $blue $blue $blue transparent;
