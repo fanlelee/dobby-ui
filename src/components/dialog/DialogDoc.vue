@@ -1,13 +1,14 @@
 <template>
   <h1>Dialog组件</h1>
   <Demo :component-demo="Dialog1" :core-code="coreCode1" :description="description1"/>
-  <Demo :component-demo="Dialog2" :core-code="coreCode2" :description="description2"/>
+  <Demo :component-demo="Dialog3"  :component-demo2="Dialog2" :core-code="coreCode2" :description="description2"/>
 </template>
 
 <script>
 import Demo from "../Demo.vue";
 import Dialog1 from "./Dialog1.demo.vue";
 import Dialog2 from "./Dialog2.demo.vue";
+import Dialog3 from "./Dialog3.demo.vue";
 
 export default {
   name: "DialogDoc",
@@ -27,20 +28,25 @@ export default {
       Dialog1
     }
     const dialog2 = {
-      'coreCode2':'      openDialog(\n' +
-          '          {\n' +
-          '            \'ok\': ok,\n' +
-          '            \'cancel\': cancel,\n' +
-          '            \'header\': h(\n' +
-          '                `strong`,\n' +
-          '                \'\',\n' +
-          '                \'标题\'\n' +
-          '            ),\n' +
-          '            \'main\': \'内容\'\n' +
-          '          }\n' +
-          '      )',
+      'coreCode2':'    const ok = () => {\n' +
+          '      return true\n' +
+          '    }\n' +
+          '    const cancel = () => {\n' +
+          '      console.log(\'hello\');\n' +
+          '    }\n'+
+          '    openDialog({\n' +
+          '          \'ok\': ok,\n' +
+          '          \'cancel\': cancel,\n' +
+          '          \'header\': h(\n' +
+          '              `strong`,\n' +
+          '              \'\',\n' +
+          '              \'标题\'\n' +
+          '          ),\n' +
+          '          \'main\': \'内容\'\n' +
+          '    })\n' ,
       'description2':'通过JS来设置dialog相关参数；\n注意需要引入"import {openDialog} from \'openDialog.ts\'"。',
-      Dialog2
+      Dialog2,
+      Dialog3
     }
     return {...dialog1, ...dialog2}
   }

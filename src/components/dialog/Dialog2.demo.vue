@@ -4,14 +4,13 @@
 </template>
 
 <script>
-import Dialog from '../../lib/Dialog.vue'
 import Button from '../../lib/Button.vue'
 import {h} from 'vue'
 
 import {openDialog} from '../../lib/openDialog.ts'
 
 export default {
-  components: {Dialog, Button},
+  components: { Button},
   setup() {
     const ok = () => {
       return true

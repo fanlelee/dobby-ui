@@ -6,7 +6,8 @@
     <div v-if="description" class="description">{{description}}</div>
     <div v-if="codeVisible"><Button @click="toggle" size="small">隐藏代码</Button></div>
     <div v-else><Button @click="toggle" size="small">显示完整代码</Button></div>
-    <pre v-if="codeVisible" class="all-code language-html" v-html="Prism.highlight(componentDemo.__sourceCode,Prism.languages.html, 'html')"/>
+    <pre v-if="codeVisible &&componentDemo2" class="all-code language-html" v-html="Prism.highlight(componentDemo2.__sourceCode,Prism.languages.html, 'html')"/>
+    <pre v-else-if="codeVisible" class="all-code language-html" v-html="Prism.highlight(componentDemo.__sourceCode,Prism.languages.html, 'html')"/>
   </div>
 </template>
 <script lang="ts">
@@ -20,8 +21,9 @@ export default {
   components: {Button},
   props:{
     componentDemo:Object,
+    componentDemo2:Object,
     coreCode:String,
-    description:String
+    description:String,
   },
   setup() {
     const codeVisible = ref<boolean>(false)
